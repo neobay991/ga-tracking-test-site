@@ -11,10 +11,6 @@
 
     gtag('config', 'UA-31333601-1');
   </script>
-  <script src="jk-analytics.js"/>
-  <script>
-      window.GAAP.analytics.eventTracking.init()
-  </script>
   <meta charset="utf-8">
   <title>Test page 1</title>
   <meta name="description" content="Jay test page">
@@ -22,18 +18,8 @@
 </head>
 <body>
   <p>lorem ispsum</p>
-  <ul>
-    <li><a href="page1.html" onClick="handleOutboundLinkClicks()">Link 1</a></li>
-    <li><a href="page2.html">Link 2</a></li>
-    <li><a href="http://www.google.com" onClick="handleOutboundLinkClicks()" target="_blank">external link</a></li>
-  </ul>
-  <nav data-click-events data-click-category="Header" data-click-action="Navigation link clicked">
-    <ul>
-      <li><a href="https://www.payments.service.gov.uk/#main" title="Learn more about GOV.UK Pay">About</a></li>
-      <li><a href="https://docs.payments.service.gov.uk" title="Read the GOV.UK Pay Documentation">Documentation</a></li>
-      <li><a href="https://www.payments.service.gov.uk/support/" title="Contact the GOV.UK Pay Team">Support</a></li>
-      <li><a href="/login" title="Log me in" id="login" class="content login active">Sign in</a></li>
-    </ul>
-</nav>
+<ul>
+  <li><a href="page1.html" onclick="ga('send','event','Links','Click','Click me');">Click me</a></li>
+ </ul>
 </body>
 </html>
