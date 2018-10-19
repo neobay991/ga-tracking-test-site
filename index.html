@@ -15,11 +15,30 @@
   <title>Test page 1</title>
   <meta name="description" content="Jay test page">
   <meta name="author" content="Jay K">
+
+  <script>
+/**
+* Function that tracks a click on an outbound link in Analytics.
+* This function takes a valid URL string as an argument, and uses that URL string
+* as the event label. Setting the transport method to 'beacon' lets the hit be sent
+* using 'navigator.sendBeacon' in browser that support it.
+*/
+var trackOutboundLink = function(url) {
+  gtag('event', 'click', {
+    'event_category': 'outbound',
+    'event_label': url,
+    'transport_type': 'beacon',
+    'event_callback': function(){document.location = url;}
+  });
+}
+</script>
+
 </head>
 <body>
   <p>lorem ispsum</p>
 <ul>
   <li><a href="page1.html" onclick="ga('send','event','Links','Click','Click me');">Click me</a></li>
- </ul>
+  <li><a href="http://www.example.com" onclick="trackOutboundLink('http://www.example.com'); return false;">Check out example.com</a></li>
+</ul>
 </body>
 </html>
