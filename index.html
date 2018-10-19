@@ -25,7 +25,7 @@
 */
 var trackOutboundLink = function(url) {
   gtag('event', 'click', {
-    'event_category': 'outbound',
+    'event_category': 'outbound urls',
     'event_label': url,
     'transport_type': 'beacon',
     'event_callback': function(){document.location = url;}
@@ -37,8 +37,8 @@ var trackOutboundLink = function(url) {
 <body>
   <p>lorem ispsum</p>
 <ul>
-  <li><a href="page1.html" onclick="ga('send','event','Links','Click','Click me');">Click me</a></li>
   <li><a href="http://www.example.com" onclick="trackOutboundLink('http://www.example.com'); return false;">Check out example.com</a></li>
+  <li><a href="http://www.example.com" onclick="trackOutboundLink('http://www.example.com'); return false;">Check out example2.com</a></li>
 </ul>
 </body>
 </html>
