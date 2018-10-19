@@ -25,7 +25,16 @@
 */
 var trackOutboundLink = function(url) {
   gtag('event', 'click', {
-    'event_category': 'outbound urls',
+    'event_category': 'external urls',
+    'event_label': url,
+    'transport_type': 'beacon',
+    'event_callback': function(){document.location = url;}
+  });
+}
+
+var trackInternalLink = function(url) {
+  gtag('event', 'click', {
+    'event_category': 'internal urls',
     'event_label': url,
     'transport_type': 'beacon',
     'event_callback': function(){document.location = url;}
@@ -37,8 +46,10 @@ var trackOutboundLink = function(url) {
 <body>
   <p>lorem ispsum</p>
 <ul>
-  <li><a href="http://www.example.com" onclick="trackOutboundLink('http://www.example.com'); return false;">Check out example.com</a></li>
-  <li><a href="http://www.example.com" onclick="trackOutboundLink('http://www.example2.com'); return false;">Check out example2.com</a></li>
+  <li><a href="http://www.example.com" onclick="trackOutboundLink('http://www.example.com'); return false;">Check out external site example.com</a></li>
+  <li><a href="http://www.example.com" onclick="trackOutboundLink('http://www.example2.com'); return false;">Check out external site example2.com</a></li>
+  <li><a href="page1.html" onclick="trackInternalLink('https://jaytestsite.herokuapp.com/page1.html'); return false;">Check out internal page1.html</a></li>
+  <li><a href="page2.html" onclick="trackInternalLink('https://jaytestsite.herokuapp.com/page2.html'); return false;">Check out internal page2.html</a></li>
 </ul>
 </body>
 </html>
