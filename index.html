@@ -32,6 +32,9 @@ var trackOutboundLink = function(url) {
   });
 }
 
+/**
+* Function that tracks a click on an internal link in Analytics.
+*/
 var trackInternalLink = function(url) {
   gtag('event', 'click', {
     'event_category': 'internal urls',
@@ -44,12 +47,18 @@ var trackInternalLink = function(url) {
 
 </head>
 <body>
-  <p>lorem ispsum</p>
-<ul>
-  <li><a href="http://www.example.com" onclick="trackOutboundLink('http://www.example.com'); return false;">Check out external site example.com</a></li>
-  <li><a href="http://www.example.com" onclick="trackOutboundLink('http://www.example2.com'); return false;">Check out external site example2.com</a></li>
-  <li><a href="page1.html" onclick="trackInternalLink('https://jaytestsite.herokuapp.com/page1.html'); return false;">Check out internal page1.html</a></li>
-  <li><a href="page2.html" onclick="trackInternalLink('https://jaytestsite.herokuapp.com/page2.html'); return false;">Check out internal page2.html</a></li>
-</ul>
+  <h2>GA Event tracking links</h2>
+  <p>external urls</p>
+  <ul>
+    <li><a href="http://www.example.com" onclick="trackOutboundLink('http://www.example.com'); return false;">Check out external site example.com</a></li>
+    <li><a href="http://www.example.com" onclick="trackOutboundLink('http://www.example2.com'); return false;">Check out external site example2.com</a></li>
+  </ul>
+  <br/>
+  <br/>
+  <p>internal urls</p>
+  <ul>
+    <li><a href="page1.html" onclick="trackInternalLink('https://jaytestsite.herokuapp.com/page1.html'); return false;">Check out internal page1.html</a></li>
+    <li><a href="page2.html" onclick="trackInternalLink('https://jaytestsite.herokuapp.com/page2.html'); return false;">Check out internal page2.html</a></li>
+  </ul>
 </body>
 </html>
